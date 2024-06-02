@@ -1,4 +1,3 @@
-import React from "react";
 import { BOARD_COLS, BOARD_ROWS } from "../config";
 
 export const Header = () => {
