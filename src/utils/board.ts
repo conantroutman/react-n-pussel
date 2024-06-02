@@ -15,7 +15,7 @@ const VICTORY_CONDITION = Array.from(
  * @param randomize Randomize board tiles. Default is true.
  * @returns
  */
-export function generateBoard(randomize: boolean = true) {
+function generateBoard(randomize: boolean = true) {
   const board: BoardGrid = [];
 
   let tile = 1;
@@ -44,7 +44,7 @@ export function generateBoard(randomize: boolean = true) {
  * @param board
  * @returns
  */
-export function boardGridToTileList(board: BoardGrid) {
+function boardGridToTileList(board: BoardGrid) {
   const flattenedBoard: { value: number; row: number; col: number }[] = [];
 
   for (let i = 0; i < board.length; i++) {
@@ -63,7 +63,7 @@ export function boardGridToTileList(board: BoardGrid) {
  * @param board
  * @returns
  */
-export function shuffleBoard(board: BoardGrid) {
+function shuffleBoard(board: BoardGrid) {
   for (let i = board.length - 1; i > 0; i--) {
     for (let j = board[i].length - 1; j > 0; j--) {
       const row = Math.floor(Math.random() * (i + 1));
@@ -83,7 +83,7 @@ export function shuffleBoard(board: BoardGrid) {
  * @param board
  * @returns
  */
-export function isPuzzleSolved(board: BoardGrid) {
+function isPuzzleSolved(board: BoardGrid) {
   const boardSequence: number[] = [];
 
   // TODO: Check if the empty tile is last
@@ -109,7 +109,7 @@ export function isPuzzleSolved(board: BoardGrid) {
  * This is probably not the most efficient way to do it, but it's not like anyone is going to play this game with thousands of tiles
  * @param board
  */
-export function findEmptyTileIndex(board: BoardGrid): TileIndex | undefined {
+function findEmptyTileIndex(board: BoardGrid): TileIndex | undefined {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       if (board[i][j] === 0) {
@@ -124,7 +124,7 @@ export function findEmptyTileIndex(board: BoardGrid): TileIndex | undefined {
  *
  */
 
-export function shiftTiles(
+function shiftTiles(
   board: BoardGrid,
   startIndex: TileIndex,
   endIndex: TileIndex
@@ -184,4 +184,5 @@ export const BoardUtils = {
   isPuzzleSolved,
   findEmptyTileIndex,
   shiftTiles,
+  shuffleBoard,
 };

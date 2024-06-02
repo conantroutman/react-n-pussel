@@ -1,14 +1,14 @@
 import { expect, test } from "vitest";
-import { generateBoard, isPuzzleSolved } from "./board";
+import { BoardUtils } from "./board";
 
 test("isBoardSolved returns true when all the board tiles are in ascending order", () => {
-  const board = generateBoard(false);
+  const board = BoardUtils.generateBoard(false);
 
-  expect(isPuzzleSolved(board)).toBeTruthy();
+  expect(BoardUtils.isPuzzleSolved(board)).toBeTruthy();
 });
 
 test("isBoardSolved returns false when all the board tiles not in the correct order", () => {
-  const board = generateBoard();
+  const board = BoardUtils.generateBoard();
 
-  expect(isPuzzleSolved(board)).toBeFalsy();
+  expect(BoardUtils.isPuzzleSolved(board)).toBeFalsy();
 });

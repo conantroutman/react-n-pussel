@@ -1,12 +1,6 @@
 import { useAtom } from "jotai";
 import { boardAtom, clicksAtom, isSolvedAtom } from "../store/atoms";
-import {
-  BoardUtils,
-  findEmptyTileIndex,
-  generateBoard,
-  shiftTiles,
-  shuffleBoard,
-} from "../utils/board";
+import { BoardUtils } from "../utils/board";
 import { useEffect } from "react";
 
 export function useBoard() {
@@ -15,23 +9,23 @@ export function useBoard() {
   const [clicks, setClicks] = useAtom(clicksAtom);
 
   const randomizeBoard = () => {
-    setBoard(shuffleBoard([...board]));
+    setBoard(BoardUtils.shuffleBoard([...board]));
   };
 
   // TODO: Refactor
   const moveTile = (row: number, col: number) => {
-    const emptyTile = findEmptyTileIndex(board);
+    const emptyTile = BoardUtils.findEmptyTileIndex(board);
     if (!emptyTile) {
       return;
     }
 
-    shiftTiles(board, { row, col }, emptyTile);
+    BoardUtils.shiftTiles(board, { row, col }, emptyTile);
     setBoard([...board]);
     setClicks((prev) => prev + 1);
   };
 
   const resetBoard = () => {
-    setBoard(generateBoard());
+    setBoard(BoardUtils.generateBoard());
     setIsSolved(false);
     setClicks(0);
   };
