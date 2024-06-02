@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import { BoardUtils } from "./board";
+import { BOARD_COLS, BOARD_ROWS } from "../config";
 
 test("isBoardSolved returns true when all the board tiles are in ascending order", () => {
   const board = BoardUtils.generateBoard(false);
@@ -24,4 +25,12 @@ test("isBoardSolved returns false when all the board tiles not in the correct or
   const board = BoardUtils.generateBoard();
 
   expect(BoardUtils.isPuzzleSolved(board)).toBeFalsy();
+});
+
+test("generateBoard generates the correct number of tiles", () => {
+  const board = BoardUtils.generateBoard();
+
+  // Maybe not the best unit test because it assumes all rows will have equal number of columns
+  expect(board.length).toEqual(BOARD_ROWS);
+  expect(board[0].length).toEqual(BOARD_COLS);
 });
