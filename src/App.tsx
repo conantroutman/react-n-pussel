@@ -21,7 +21,6 @@ function App() {
               <RandomizeButton />
             </div>
           )}
-          {/* <RandomizeButton /> */}
         </div>
       </main>
       <Footer />
