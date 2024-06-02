@@ -86,7 +86,11 @@ function shuffleBoard(board: BoardGrid) {
 function isPuzzleSolved(board: BoardGrid) {
   const boardSequence: number[] = [];
 
-  // TODO: Check if the empty tile is last
+  const lastRow = board[board.length - 1];
+  const lastCol = lastRow[lastRow.length - 1];
+
+  if ([board[board.length - 1].length - 1] !== 0) {
+  }
 
   // Flatten board to one-dimensional array, excluding the empty tile
   for (let i = 0; i < board.length; i++) {
@@ -167,7 +171,6 @@ function shiftTiles(
     } else {
       for (let i = endIndex.row - 1; i >= startIndex.row; i--) {
         const temp = board[i][startIndex.col];
-        console.log(temp);
 
         board[i][startIndex.col] = board[i + 1][startIndex.col];
         board[i + 1][startIndex.col] = temp;
