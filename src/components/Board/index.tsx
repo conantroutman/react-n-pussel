@@ -20,7 +20,7 @@ export const PuzzleBoard = () => {
       style={
         { "--cols": BOARD_COLS, "--rows": BOARD_ROWS } as React.CSSProperties
       }
-      className="w-full mx-auto grid gap-1 grid-cols-[repeat(var(--cols),minmax(0,1fr))] grid-rows-[repeat(var(--rows),minmax(0,1fr))] rounded-lg border border-solid border-neutral-300 p-2"
+      className="w-full mx-auto grid gap-2 grid-cols-[repeat(var(--cols),minmax(0,1fr))] grid-rows-[repeat(var(--rows),minmax(0,1fr))] rounded-lg border border-solid border-neutral-300 p-2"
     >
       {BoardUtils.boardGridToTileList(board).map((tile) =>
         tile.value === 0 ? (
