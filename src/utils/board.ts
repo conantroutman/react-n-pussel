@@ -89,7 +89,10 @@ function isPuzzleSolved(board: BoardGrid) {
   const lastRow = board[board.length - 1];
   const lastCol = lastRow[lastRow.length - 1];
 
-  if ([board[board.length - 1].length - 1] !== 0) {
+  // Before we check the entire board, we check if the last tile is empty
+  // If it isn't, then the puzzle hasn't been solved
+  if (lastCol !== 0) {
+    return false;
   }
 
   // Flatten board to one-dimensional array, excluding the empty tile
@@ -177,8 +180,6 @@ function shiftTiles(
       }
     }
   }
-
-  // board[startIndex.row][startIndex.col] = 0;
 }
 
 export const BoardUtils = {
