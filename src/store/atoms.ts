@@ -5,4 +5,4 @@ export const boardAtom = atom(BoardUtils.generateBoard());
 
 export const clicksAtom = atom(0);
 
-export const isSolvedAtom = atom(true);
+export const isSolvedAtom = atom(false);
